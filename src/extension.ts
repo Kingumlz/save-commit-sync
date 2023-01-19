@@ -4,24 +4,7 @@
  * This sets up the VS Code extension's command entry-point and applies logic in
  * the prepareCommitMsg module to a target branch.
  */
-import { toNamespacedPath } from "path";
-import { report } from "process";
-import * as vscode from "vscode";
-import { API } from "./api/git";
-import { makeAndFillCommitMsg } from "./autofill";
-import { getGitExtension,  getCommitMsg, setCommitMsg} from "./gitExtension";
-
-function _validateFoundRepos(git: API) {
-  let msg = "";
-
-  if (!git) {
-    msg = "Unable to load Git Extension";
-  } else if (git.repositories.length === 0) {
-    msg =
-      "No repos found. Please open a repo or run `git init` then try again.";
-  }
-
-  if (msg) {
+imp) {
     vscode.window.showErrorMessage(msg);
 
     throw new Error(msg);
